@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <title>Playcation</title>
 </head>
 <body>
+
+        <div id="outer">
+            <div id="container">
+                <h2>Where do you want to go?</h2>
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Select location...
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Barcelona</a></li>
+                <li><a class="dropdown-item" href="#">Cape Town</a></li>
+                <li><a class="dropdown-item" href="#">Dubai</a></li>
+                <li><a class="dropdown-item" href="#">Kyoto</a></li>
+                <li><a class="dropdown-item" href="#">Rio De Janeiro</a></li>
+                <li><a class="dropdown-item" href="#">San Francisco</a></li>
+                </ul>
+                <button type="button" class="btn btn-primary">Go!</button>
+                </div>
+            </div>
+        </div>
+=======
     <h2>Where do you want to go?</h2>
     <input type="text" placeholder="Search"><button>Go there</button>
     <div id="images"></div>
@@ -14,5 +38,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/script.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
