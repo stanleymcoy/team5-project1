@@ -29,7 +29,9 @@ $(".dropdown-menu").on("click", "li", function(event){
       url: "https://pixabay.com/api/?key=19889884-fb56b98757db0c3c85fe41506&q=" + place +"&image_type=photo&category=places",
       method: "GET"
     }).then(function(response) {
+      // images from recent trips are cleared
 
+      $("#images").empty();
       // images from query append to page
       for(i = 0; i < response.hits.length; i++){
         $("#images").append("<img src="+ response.hits[i].webformatURL+"></img>");
