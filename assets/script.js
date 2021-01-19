@@ -22,9 +22,25 @@ $(".dropdown-menu").on("click", "li", function (event) {
     var musicCountry = event.target.attributes[2].value;
     console.log(place);
 
+    // -------------------------------------------------------------------------//
     // weather API call
+    var weatherKey = "76b919f90d91bc2b20cd335b8fcbe3a8";
 
-    // weather from query appends to page
+    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
+
+    $.ajax({
+      url: weatherQueryURL,
+      method: "GET"
+    }).then(function (response) {
+      // clear any prior weather info
+      $("#weather").empty();
+      // weather from query appends to page
+      console.log(response);
+      $("#weather").append(
+        "<p>In " + response.name + ", it is currently " + response.main.temp + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
+  });
+    
+
 
     //-------------------------------------------------------------------------//
     
