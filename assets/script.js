@@ -14,12 +14,11 @@ $(".dropdown-menu").on("click", "li", function (event) {
   // Go! button creates API query
   $("#goButton").on("click", function () {
     // setting place variable to equal value of target
-
-    // define location variable
     var place = event.target.attributes[1].value;
 
     // define musicCountry variable
     var musicCountry = event.target.attributes[2].value;
+
     console.log(place);
 
     // -------------------------------------------------------------------------//
@@ -70,7 +69,9 @@ $(".dropdown-menu").on("click", "li", function (event) {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
+
       // top tracks from query append to page
+
       console.log(response);
 
       for (i = 0; i < 10; i++) {
@@ -94,12 +95,13 @@ $(".dropdown-menu").on("click", "li", function (event) {
       url:
         "https://pixabay.com/api/?key=19889884-fb56b98757db0c3c85fe41506&q=" +
         place +
-        "&image_type=photo&category=places",
+        "&image_type=photo&category=places&safesearch=true",
       method: "GET",
     }).then(function (response) {
+      console.log(response);
       // images from recent trips are cleared
-
       $("#images").empty();
+
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
         $("#images").append(
