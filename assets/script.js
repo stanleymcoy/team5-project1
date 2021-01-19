@@ -14,7 +14,11 @@ $(".dropdown-menu").on("click", "li", function (event) {
   // Go! button creates API query
   $("#goButton").on("click", function () {
     // setting place variable to equal value of target
+
+    // define location variable
     var place = event.target.attributes[1].value;
+
+    // define musicCountry variable
     var musicCountry = event.target.attributes[2].value;
     console.log(place);
 
@@ -22,12 +26,12 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
     // weather from query appends to page
 
+    //-------------------------------------------------------------------------//
+    
     // top tracks API call
+    
     // API Key
-
     var musicApiKey = "0157c95a3c971813dee6253f52b0f981";
-
-    // Define location variable
 
     // $("#goButton").on("click", function () {
     console.log("music click working");
@@ -60,9 +64,14 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
     // top tracks from query append to page
 
+    //----------------------------------------------------------------------------//
+
     // recipe API call
 
     // recipe from query appends to page
+
+
+    //---------------------------------------------------------------------------//
 
     // images API call
     $.ajax({
