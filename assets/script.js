@@ -15,6 +15,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
   $("#goButton").on("click", function () {
     // setting place variable to equal value of target
     var place = event.target.attributes[1].value;
+    var musicCountry = event.target.attributes[2].value;
     console.log(place);
 
     // weather API call
@@ -33,14 +34,14 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
     var metro = event.target.attributes[1].value;
     console.log("metro = " + metro);
-    var musicCountry = locationData[metro];
+    // var musicCountry = locationData[metro];
     console.log("musicCountry = " + musicCountry);
 
     var queryURL =
       "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=" +
       musicCountry +
       "&location=" +
-      metro +
+      place +
       "&api_key=" +
       musicApiKey +
       "&format=json";
