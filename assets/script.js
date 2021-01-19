@@ -37,7 +37,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
       // weather from query appends to page
       console.log(response);
       $("#weather").append(
-        "<p>In " + response.name + ", it is currently " + response.main.temp + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
+        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
   });
     
 
