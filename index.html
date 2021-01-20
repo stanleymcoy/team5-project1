@@ -10,31 +10,30 @@
     <title>Playcation</title>
 </head>
 <body>
-
-        <div id="outer">
-            <div id="container">
-                <h2>Where do you want to go?</h2>
-                <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Select location...
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Barcelona</a></li>
-                <li><a class="dropdown-item" href="#">Cape Town</a></li>
-                <li><a class="dropdown-item" href="#">Dubai</a></li>
-                <li><a class="dropdown-item" href="#">Kyoto</a></li>
-                <li><a class="dropdown-item" href="#">Rio De Janeiro</a></li>
-                <li><a class="dropdown-item" href="#">San Francisco</a></li>
-                </ul>
-                <button type="button" class="btn btn-primary">Go!</button>
-                </div>
-            </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="assets/Playcation.png" alt="" width="auto" height="70">
+          </a>
+          <h3>Where do you want to go?</h3>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Select location...
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" value="barcelona" id="spain" href="#">Barcelona</a></li>
+            <li><a class="dropdown-item" value="cape+town" id="south+africa" href="#">Cape Town</a></li>
+            <li><a class="dropdown-item" value="dubai" id="united+arab+emirates" href="#">Dubai</a></li>
+            <li><a class="dropdown-item" value="kyoto" id="japan" href="#">Kyoto</a></li>
+            <li><a class="dropdown-item" value="rio+de+janeiro" id="brazil" href="#">Rio De Janeiro</a></li>
+            <li><a class="dropdown-item" value="san+francisco" id="united+states" href="#">San Francisco</a></li>
+            
+            </ul>
+            <button type="button" id="goButton" class="btn btn-primary">Go!</button>
         </div>
-=======
-    <h2>Where do you want to go?</h2>
-    <input type="text" placeholder="Search"><button>Go there</button>
+    </nav>
+    <div id="weather"></div>
     <div id="images"></div>
-
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/script.js"></script>
