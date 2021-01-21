@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-console.log("script loaded");
-
->>>>>>> 495ed5d17be0c0fb078e756f76770cb176f3b7df
 // Create object for location data
 
 var locationData = {
@@ -28,30 +23,17 @@ $(".dropdown-menu").on("click", "li", function (event) {
     // weather API call
     var weatherKey = "76b919f90d91bc2b20cd335b8fcbe3a8";
 
-<<<<<<< HEAD
     var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
 
     $.ajax({
       url: weatherQueryURL,
       method: "GET"
-=======
-    var weatherQueryURL =
-      "https://api.openweathermap.org/data/2.5/weather?q=" +
-      place +
-      "&units=imperial&appid=" +
-      weatherKey;
-
-    $.ajax({
-      url: weatherQueryURL,
-      method: "GET",
->>>>>>> 495ed5d17be0c0fb078e756f76770cb176f3b7df
     }).then(function (response) {
       // clear any prior weather info
       $("#weather").empty();
       // weather from query appends to page
       console.log(response);
       $("#weather").append(
-<<<<<<< HEAD
         "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
   });
     
@@ -61,24 +43,6 @@ $(".dropdown-menu").on("click", "li", function (event) {
     
     // top tracks API call
     
-=======
-        "<p>In " +
-          response.name +
-          ", it is currently " +
-          Math.round(response.main.temp) +
-          " degrees with " +
-          response.weather[0].description
-      ) +
-        "and " +
-        response.main.humidity +
-        "percent humidity.</p>";
-    });
-
-    //-------------------------------------------------------------------------//
-
-    // top tracks API call
-
->>>>>>> 495ed5d17be0c0fb078e756f76770cb176f3b7df
     // API Key
     var musicApiKey = "0157c95a3c971813dee6253f52b0f981";
 
@@ -103,31 +67,12 @@ $(".dropdown-menu").on("click", "li", function (event) {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 495ed5d17be0c0fb078e756f76770cb176f3b7df
       // top tracks from query append to page
 
       console.log(response);
 
       for (i = 0; i < 10; i++) {
-<<<<<<< HEAD
         console.log(response.tracks.track[i]);
-=======
-        // get artist name
-        var artist = $("<p>").text(response.tracks.track[i].artist.name);
-        console.log(artist);
-        // get track name
-        var track = $("<p>").text(response.tracks.track[i].name);
-        // get track url
-        var trackURL = $("<a>")
-          .attr("href", response.tracks.track[i].url)
-          .text("Listen on Last.fm");
-        // append to #music div
-        $("#music").append(artist, track, trackURL);
-        // $('#music').append(trackURL);
->>>>>>> 495ed5d17be0c0fb078e756f76770cb176f3b7df
       }
     });
 
@@ -139,10 +84,6 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
     // recipe from query appends to page
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 495ed5d17be0c0fb078e756f76770cb176f3b7df
     //---------------------------------------------------------------------------//
 
     // images API call
