@@ -3,7 +3,12 @@ console.log("script loaded");
 // Create object for location data
 
 var locationData = {
-  barcelona: "spain",
+  barcelona : "spain",
+  capetown: "south africa",
+  dubai : "united arab emirates",
+  kyoto : "japan",
+  riodejeneiro: "brazil",
+  sanfrancisco : "united states",
 };
 
 // Dropdown menu reflects selected location
@@ -80,6 +85,10 @@ $(".dropdown-menu").on("click", "li", function (event) {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
+
+      // clear existing music data
+
+      $('#music').empty();
       // top tracks from query append to page
 
       console.log(response);
@@ -93,6 +102,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
         // get track url
         var trackURL = $("<a>")
           .attr("href", response.tracks.track[i].url)
+          .attr("target", "_blank")
           .text("Listen on Last.fm");
         // append to #music div
         $("#music").append(artist, track, trackURL);
