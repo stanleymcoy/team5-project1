@@ -105,5 +105,8 @@ $(".dropdown-menu").on("click", "li", function (event) {
         );
       }
     });
+    // $(".mySlides").on("slide.bs.carousel", function () {
+      // do something…
+    });
   });
-});
+
