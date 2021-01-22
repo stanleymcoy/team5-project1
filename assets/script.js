@@ -96,12 +96,11 @@ $(".dropdown-menu").on("click", "li", function (event) {
     }).then(function (response) {
       console.log(response);
       // images from recent trips are cleared
-      $("#images").empty();
 
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
-        $("#images").append(
-          "<img src=" + response.hits[i].webformatURL + "></img>"
+        $(".carousel-inner").append(
+          "<div class=carousel-item><img class=d-block w-100 src=" + response.hits[i].webformatURL + "></img></div>"
         );
       }
     });
