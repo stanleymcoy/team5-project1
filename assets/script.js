@@ -3,12 +3,12 @@ console.log("script loaded");
 // Create object for location data
 
 var locationData = {
-  barcelona : "spain",
+  barcelona: "spain",
   capetown: "south africa",
-  dubai : "united arab emirates",
-  kyoto : "japan",
+  dubai: "united arab emirates",
+  kyoto: "japan",
   riodejeneiro: "brazil",
-  sanfrancisco : "united states",
+  sanfrancisco: "united states",
 };
 
 // Dropdown menu reflects selected location
@@ -85,10 +85,9 @@ $(".dropdown-menu").on("click", "li", function (event) {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-
       // clear existing music data
 
-      $('#music').empty();
+      $("#music").empty();
       // top tracks from query append to page
 
       console.log(response);
@@ -109,8 +108,6 @@ $(".dropdown-menu").on("click", "li", function (event) {
         // $('#music').append(trackURL);
       }
     });
-
-    // top tracks from query append to page
 
     //----------------------------------------------------------------------------//
 
