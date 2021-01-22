@@ -101,7 +101,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
         $("#images").append(
-          "<img src=" + response.hits[i].webformatURL + "></img>"
+          "<img src=" + response.hits[i].largeImageURL + "></img>" // changed to larger image instead of the webformatImage.
         );
       }
     });

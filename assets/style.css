@@ -61,7 +61,6 @@ body {
   padding-bottom: 5px;
   padding-left: 20px
 }
-
 .jumbotron .display-2 {
  
   font-style: bold;
@@ -73,10 +72,10 @@ body {
 /* .display-4 {
   height: 30%;
 } */
-.lead {
+/* .lead {
   text-align: right;
   margin-right: 100px;
-}
+} */
 
 .display-2 {
   padding-bottom: 180px;
@@ -101,12 +100,21 @@ body {
   padding-bottom: 0;
   padding-right: 60px;
 }
-
-.image-container {
-  padding-top: 60px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%
+#images {
+  page-break-before: always;
 }
 
+.image-container {
+  padding-top: 200px;
+  display: inline;
+  margin-left: 0;
+  margin-right: 0;
+  
+}
+
+.city-sights {
+  width: 100%;
+  padding; 200px 100px 40px 100px;
+  line-height: 700px;
+ 
+}
