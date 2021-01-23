@@ -1,5 +1,4 @@
 // Create object for location data
-
 var locationData = {
   barcelona: "spain",
   capetown: "south africa",
@@ -9,6 +8,15 @@ var locationData = {
   sanfrancisco: "united states",
 };
 
+// set global variables
+var place = "";
+var currentName = "";
+var currentTemp = "";
+var currentDescription = "";
+var currentHumidity = "";
+
+var playCations = [];
+
 // Dropdown menu reflects selected location
 $(".dropdown-menu").on("click", "li", function (event) {
   $("#dropdownMenuButton").text(event.target.innerText);
@@ -16,8 +24,43 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
   // Go! button creates API query
   $("#goButton").on("click", function () {
+
+   function savePlaycation(){
+    var stringPlaycations = localStorage.getItem("Playcations") || "[]";
+    var parsedPlaycations = JSON.parse(stringPlaycations);
+
+    //building locations to store
+    var playCation = {};
+    playCation.destination = place;
+    
+    playCation.weather = {
+      name: currentName,
+      temp: currentTemp,
+      description: currentDescription,
+      humidity: currentHumidity
+    };
+
+    parsedPlaycations.push(playCation);
+    var stringifiedPlaycations = JSON.stringify(parsedPlaycations);
+
+    localStorage.setItem("Playcations", stringifiedPlaycations);
+
+  };
+
+  function renderSaved(){
+    var stringPlaycations = localStorage.getItem("Playcations");
+    var parsedPlaycations = JSON.parse(stringPlaycations);
+    
+    console.log(parsedPlaycations[0].destination);
+  };
+
+  renderSaved();
+    
+
+
     // setting place variable to equal value of target
-    var place = event.target.attributes[1].value;
+    place = event.target.attributes[1].value;
+   
 
     // define musicCountry variable
     var musicCountry = event.target.attributes[2].value;
@@ -30,17 +73,25 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
     var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
 
+   
+
     $.ajax({
       url: weatherQueryURL,
       method: "GET"
     }).then(function (response) {
+      currentName = response.name;
+      currentTemp = response.main.temp;
+      currentDescription = response.weather[0].description;
+      currentHumidity = response.main.humidity;
+
       // clear any prior weather info
       $("#weather").empty();
       // weather from query appends to page
       console.log(response);
       $("#weather").append(
-        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
-    });
+        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description + "and " + response.main.humidity + "percent humidity.</p>")
+        savePlaycation();
+  });
     
 
 
@@ -121,13 +172,17 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
- $("#images").append(
+
+ $(".image-container").append(
           "<img src=" + response.hits[i].webformatURL + "></img>"
         );
-        );
+
       }
     });
     
     });
   });
+
+
+
 
