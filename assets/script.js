@@ -24,7 +24,9 @@ var playCations = [];
 function getWeather(){
   var weatherKey = "76b919f90d91bc2b20cd335b8fcbe3a8";
 
-    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
+  var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
+  
+  // API call
   $.ajax({
     url: weatherQueryURL,
     method: "GET"
@@ -63,6 +65,7 @@ function getPlaylist(){
     musicApiKey +
     "&format=json";
 
+  // API call
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -97,6 +100,7 @@ function getPlaylist(){
 }
 
 function getImages(){
+  // API call
   $.ajax({
     url:
       "https://pixabay.com/api/?key=19889884-fb56b98757db0c3c85fe41506&q=" +
@@ -107,10 +111,9 @@ function getImages(){
     console.log(response);
     // images from recent trips are cleared
     $("#image-container").empty();
-    
+
     // images from query append to page
     for (i = 0; i < response.hits.length; i++) {
-
     $("#image-container").append(
         "<img class=images src=" + response.hits[i].largeImageURL + "></img>"
       );
@@ -150,7 +153,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
   console.log("You clicked", event);
 
 // Go! button launches functions for API query
-$("#goButton").on("click", function () {
+  $("#goButton").on("click", function () {
  
   // define place variable based on target
   place = event.target.attributes[1].value;
