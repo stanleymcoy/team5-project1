@@ -39,7 +39,7 @@ function getWeather(){
     // weather from query appends to page
     console.log(response);
     $("#weather").append(
-      "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description + " and " + response.main.humidity + " percent humidity.</p>")
+      "<p>It is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description + " and " + response.main.humidity + " percent humidity.</p>")
       
 })};
 
@@ -107,12 +107,12 @@ function getImages(){
     console.log(response);
     // images from recent trips are cleared
     $("#image-container").empty();
-
+    
     // images from query append to page
     for (i = 0; i < response.hits.length; i++) {
 
     $("#image-container").append(
-        "<img class=images src=" + response.hits[i].webformatURL + "></img>"
+        "<img class=images src=" + response.hits[i].largeImageURL + "></img>"
       );
 
     }
@@ -149,18 +149,29 @@ $(".dropdown-menu").on("click", "li", function (event) {
   $("#dropdownMenuButton").text(event.target.innerText);
   console.log("You clicked", event);
 
-// Go! button launches functions API query
+// Go! button launches functions for API query
 $("#goButton").on("click", function () {
+ 
   // define place variable based on target
   place = event.target.attributes[1].value;
-    // define musicCountry variable based on target
+  
+  // define musicCountry variable based on target
   musicCountry = event.target.attributes[2].value;
+  
+  // getting destination name
+  cityName = $("#dropdownMenuButton").text();
+  
+  // empty jumbotron and tell user where they are
+  $(".jumbotron").empty();
+  $(".jumbotron").append("<h1 class=display-2>You are in " + cityName + ".</h1>" )
 
+  // run functions
   getWeather();
   getPlaylist();
   getImages();
   savePlaycation();
 
+  // Commented out code for rendering past trips
     // function renderSaved(){
     //   var stringPlaycations = localStorage.getItem("Playcations");
     //   var parsedPlaycations = JSON.parse(stringPlaycations);
