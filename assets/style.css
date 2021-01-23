@@ -25,6 +25,23 @@ h4 {
   font-size: 18px;
 }
 
+/* add background image*/
+body {
+
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+.mySlides {
+    display: none;
+    
+}
+
+.images {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
 
 .navbar .navbar-dark  .bg-dark .container {
   line-height: 40px;
@@ -103,9 +120,10 @@ h4 {
   padding-bottom: 0;
   padding-right: 60px;
 }
-
-#images {
-  page-break-before: always;
+.images {
+  width: 100%;
+  height: auto;
+  display: inline;
 }
 
 .image-container {
@@ -117,6 +135,8 @@ h4 {
 
 .city-sights {
   width: 100%;
-  /* padding: 200px 100px 40px 100px; */
-  height: auto;
- }
+  padding: 200px 100px 40px 100px;
+  line-height: 700px;
+ 
+}
+
