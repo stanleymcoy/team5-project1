@@ -2,6 +2,11 @@
 
 var locationData = {
   barcelona: "spain",
+  capetown: "south africa",
+  dubai: "united arab emirates",
+  kyoto: "japan",
+  riodejeneiro: "brazil",
+  sanfrancisco: "united states",
 };
 
 // Dropdown menu reflects selected location
@@ -35,7 +40,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
       console.log(response);
       $("#weather").append(
         "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
-  });
+    });
     
 
 
@@ -67,16 +72,33 @@ $(".dropdown-menu").on("click", "li", function (event) {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
+      // clear existing music data
+
+      $("#music").empty();
       // top tracks from query append to page
 
       console.log(response);
 
       for (i = 0; i < 10; i++) {
+
+        // get artist name
+        var artist = $("<p>").text(response.tracks.track[i].artist.name);
+        console.log(artist);
+        // get track name
+        var track = $("<p>").text(response.tracks.track[i].name);
+        // get track url
+        var trackURL = $("<a>")
+          .attr("href", response.tracks.track[i].url)
+          .attr("target", "_blank")
+          .text("Listen on Last.fm");
+        // append to #music div
+        $("#music").append(artist, track, trackURL);
+        // $('#music').append(trackURL);
+
         console.log(response.tracks.track[i]);
+
       }
     });
-
-    // top tracks from query append to page
 
     //----------------------------------------------------------------------------//
 
@@ -93,20 +115,13 @@ $(".dropdown-menu").on("click", "li", function (event) {
         place +
         "&image_type=photo&category=places&safesearch=true",
       method: "GET",
-    }).then(function (response) {
-      console.log(response);
-      // images from recent trips are cleared
-      $("#images").empty();
+    )
+    }.then(function (response) {
+       console.log(response);
+    // images from recent trips are cleared
 
-      // images from query append to page
-      for (i = 0; i < response.hits.length; i++) {
-        $("#images").append(
-          "<img src=" + response.hits[i].largeImageURL + "></img>" // changed to larger image instead of the webformatImage.
-        );
-      }
-    });
-    // $(".mySlides").on("slide.bs.carousel", function () {
-      // do something…
-    });
-  });
-
+    // images from query append to page
+    for (i = 0; i < response.hits.length; i++) {
+      $("#images").append(src= + response.hits[i].webformatURL +)
+    };
+}

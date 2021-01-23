@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
-    <link rel="stylesheet" href="assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/style.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -13,7 +13,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="assets/Playcation.png" alt="">
+            <img src="assets/Playcation.png" alt="" display="block">
           </a>
           <h3>Where do you want to go?</h3>
           <div class="dropdown">
@@ -54,24 +54,22 @@
 
     </div>
   <div id="images">
-      <div class="image-container" width="600" height="auto" display="inline" type="photo">
-         <img class="city-sights" src="data:https://pixabay.com/api/?key=19889884-fb56b98757db0c3c85fe41506&q=" +
-        place +
-        "&image_type=photo&category=places&safesearch=true">
-      </div>
-  </div>  
+      <div class="image-container" width="600" height="auto" display="block" type="image">
+         <img class="city-sights" src="https://pixabay.com/api/?key=19889884-fb56b98757db0c3c85fe41506&q=" +
+                  place + "&image_type=photo&category=places&safesearch=true">
+      </div>  
     <br>
 
-    <div class="two thirds"> 
-      <form id="application">
-         <label for="username">Name</label>
-         <input type="text" id="username" name="username"/>
-         <br>
-         <br>
-         <label for="email">Email</label>
-         <textarea id="email" name="email"></textarea>
-         <input type="submit" /> 
-      </form>
+        <div class="two thirds"> 
+          <form id="application">
+            <label for="username">Name</label>
+            <input type="text" id="username" name="username"/>
+            <br>
+            <br>
+            <label for="email">Email</label>
+            <textarea id="email" name="email"></textarea>
+            <input type="submit" /> 
+          </form>
    </div>
   
     
