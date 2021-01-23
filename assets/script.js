@@ -1,5 +1,3 @@
-console.log("script loaded");
-
 // Create object for location data
 
 var locationData = {
@@ -30,37 +28,26 @@ $(".dropdown-menu").on("click", "li", function (event) {
     // weather API call
     var weatherKey = "76b919f90d91bc2b20cd335b8fcbe3a8";
 
-    var weatherQueryURL =
-      "https://api.openweathermap.org/data/2.5/weather?q=" +
-      place +
-      "&units=imperial&appid=" +
-      weatherKey;
+    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
 
     $.ajax({
       url: weatherQueryURL,
-      method: "GET",
+      method: "GET"
     }).then(function (response) {
       // clear any prior weather info
       $("#weather").empty();
       // weather from query appends to page
       console.log(response);
       $("#weather").append(
-        "<p>In " +
-          response.name +
-          ", it is currently " +
-          Math.round(response.main.temp) +
-          " degrees with " +
-          response.weather[0].description
-      ) +
-        "and " +
-        response.main.humidity +
-        "percent humidity.</p>";
-    });
+        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description) + "and " + response.main.humidity + "percent humidity.</p>"
+  });
+    
+
 
     //-------------------------------------------------------------------------//
-
+    
     // top tracks API call
-
+    
     // API Key
     var musicApiKey = "0157c95a3c971813dee6253f52b0f981";
 
@@ -93,6 +80,7 @@ $(".dropdown-menu").on("click", "li", function (event) {
       console.log(response);
 
       for (i = 0; i < 10; i++) {
+
         // get artist name
         var artist = $("<p>").text(response.tracks.track[i].artist.name);
         console.log(artist);
@@ -106,6 +94,9 @@ $(".dropdown-menu").on("click", "li", function (event) {
         // append to #music div
         $("#music").append(artist, track, trackURL);
         // $('#music').append(trackURL);
+=======
+        console.log(response.tracks.track[i]);
+
       }
     });
 
@@ -127,12 +118,11 @@ $(".dropdown-menu").on("click", "li", function (event) {
     }).then(function (response) {
       console.log(response);
       // images from recent trips are cleared
-      $("#images").empty();
 
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
-        $("#images").append(
-          "<img src=" + response.hits[i].webformatURL + "></img>"
+        $(".carousel-inner").append(
+          "<div class=carousel-item><img class=d-block w-100 src=" + response.hits[i].webformatURL + "></img></div>"
         );
       }
     });
