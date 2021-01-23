@@ -115,13 +115,19 @@ $(".dropdown-menu").on("click", "li", function (event) {
         place +
         "&image_type=photo&category=places&safesearch=true",
       method: "GET",
-    )
-    }.then(function (response) {
-       console.log(response);
-    // images from recent trips are cleared
+    }).then(function (response) {
+      console.log(response);
+      // images from recent trips are cleared
 
-    // images from query append to page
-    for (i = 0; i < response.hits.length; i++) {
-      $("#images").append(src= + response.hits[i].webformatURL +)
-    };
-}
+      // images from query append to page
+      for (i = 0; i < response.hits.length; i++) {
+ $("#images").append(
+          "<img src=" + response.hits[i].webformatURL + "></img>"
+        );
+        );
+      }
+    });
+    
+    });
+  });
+
