@@ -47,14 +47,14 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
   };
 
-  function renderSaved(){
-    var stringPlaycations = localStorage.getItem("Playcations");
-    var parsedPlaycations = JSON.parse(stringPlaycations);
+  // function renderSaved(){
+  //   var stringPlaycations = localStorage.getItem("Playcations");
+  //   var parsedPlaycations = JSON.parse(stringPlaycations);
     
-    console.log(parsedPlaycations[0].destination);
-  };
+  //   console.log(parsedPlaycations[0].destination);
+  // };
 
-  renderSaved();
+ 
     
 
 
@@ -89,8 +89,8 @@ $(".dropdown-menu").on("click", "li", function (event) {
       // weather from query appends to page
       console.log(response);
       $("#weather").append(
-        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description + "and " + response.main.humidity + "percent humidity.</p>")
-        savePlaycation();
+        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description + " and " + response.main.humidity + " percent humidity.</p>")
+        
   });
     
 
@@ -169,20 +169,25 @@ $(".dropdown-menu").on("click", "li", function (event) {
     }).then(function (response) {
       console.log(response);
       // images from recent trips are cleared
+      $("#image-container").empty();
 
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
 
- $(".image-container").append(
-          "<img src=" + response.hits[i].webformatURL + "></img>"
+      $("#image-container").append(
+          "<img class=images src=" + response.hits[i].webformatURL + "></img>"
         );
 
       }
+      
+      
     });
+
+    savePlaycation();
     
     });
+    
   });
-
-
+  
 
 
