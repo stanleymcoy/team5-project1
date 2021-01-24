@@ -30,8 +30,9 @@ body {
 
 .images {
     vertical-align: middle;
-    width: 100%;
+    width: 80%;
     height: auto;
+    margin-bottom: 15px;
 }
 
 .navbar .navbar-dark  .bg-dark .container {
@@ -68,7 +69,10 @@ body {
   font-size: 24px;
   line-height: 40px;
   padding-bottom: 5px;
-  padding-left: 20px
+  padding-left: 20px;
+  margin-left: 150px;
+  margin-top: 0px;
+  margin-bottom: 50px
 }
 .jumbotron .display-2 {
  
