@@ -27,9 +27,12 @@ body {
 }
 
 .images {
-  vertical-align: middle;
-  width: 100%;
-  height: auto;
+  
+    vertical-align: middle;
+    width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+
 }
 
 .navbar .navbar-dark .bg-dark .container {
@@ -67,6 +70,10 @@ body {
   line-height: 40px;
   padding-bottom: 5px;
   padding-left: 20px;
+  margin-left: 150px;
+  margin-top: 0px;
+  margin-bottom: 50px
+
 }
 
 #music {
