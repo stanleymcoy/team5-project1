@@ -73,7 +73,7 @@ function getPlaylist(){
   console.log("musicCountry = " + musicCountry);
 
   var queryURL =
-    "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=" +
+    "https://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=" +
     musicCountry +
     "&location=" +
     place +
