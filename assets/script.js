@@ -19,22 +19,8 @@ var currentHumidity = "";
 var playCations = [];
 
 
-//building locations to store
-var playCation = {};
-playCation.destination = place;
 
-playCation.weather = {
-        name: currentName,
-        temp: currentTemp,
-        description: currentDescription,
-        humidity: currentHumidity,
-      };
-
-      parsedPlaycations.push(playCation);
-      var stringifiedPlaycations = JSON.stringify(parsedPlaycations);
-
-      localStorage.setItem("Playcations", stringifiedPlaycations);
-    }
+  
 
     // function renderSaved(){
     //   var stringPlaycations = localStorage.getItem("Playcations");
@@ -43,13 +29,7 @@ playCation.weather = {
     //   console.log(parsedPlaycations[0].destination);
     // };
 
-    // setting place variable to equal value of target
-    place = event.target.attributes[1].value;
-
-    // define musicCountry variable
-    var musicCountry = event.target.attributes[2].value;
-
-    console.log(place);
+    
 
    
 var musicCountry="";
@@ -124,6 +104,7 @@ function getPlaylist(){
       var trackURL = $("<a>")
         .attr("href", response.tracks.track[i].url)
         .attr("target", "_blank")
+        .attr("id", "track-link")
         .text("Listen on Last.fm");
       // append to #music div
       $("#music").append(artist, track, trackURL);
