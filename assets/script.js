@@ -15,10 +15,46 @@ var currentTemp = "";
 var currentDescription = "";
 var currentHumidity = "";
 
+
+var playCations = [];
+
+
+//building locations to store
+var playCation = {};
+playCation.destination = place;
+
+playCation.weather = {
+        name: currentName,
+        temp: currentTemp,
+        description: currentDescription,
+        humidity: currentHumidity,
+      };
+
+      parsedPlaycations.push(playCation);
+      var stringifiedPlaycations = JSON.stringify(parsedPlaycations);
+
+      localStorage.setItem("Playcations", stringifiedPlaycations);
+    }
+
+    // function renderSaved(){
+    //   var stringPlaycations = localStorage.getItem("Playcations");
+    //   var parsedPlaycations = JSON.parse(stringPlaycations);
+
+    //   console.log(parsedPlaycations[0].destination);
+    // };
+
+    // setting place variable to equal value of target
+    place = event.target.attributes[1].value;
+
+    // define musicCountry variable
+    var musicCountry = event.target.attributes[2].value;
+
+    console.log(place);
+
+   
 var musicCountry="";
 
-// set empty array for local storage
-var playCations = [];
+
 
 // helper functions for onclick
 function getWeather(){
@@ -186,5 +222,6 @@ $(".dropdown-menu").on("click", "li", function (event) {
     
 });
   
+
 
 
