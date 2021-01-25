@@ -24,43 +24,36 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
   // Go! button creates API query
   $("#goButton").on("click", function () {
+    function savePlaycation() {
+      var stringPlaycations = localStorage.getItem("Playcations") || "[]";
+      var parsedPlaycations = JSON.parse(stringPlaycations);
 
-   function savePlaycation(){
-    var stringPlaycations = localStorage.getItem("Playcations") || "[]";
-    var parsedPlaycations = JSON.parse(stringPlaycations);
+      //building locations to store
+      var playCation = {};
+      playCation.destination = place;
 
-    //building locations to store
-    var playCation = {};
-    playCation.destination = place;
-    
-    playCation.weather = {
-      name: currentName,
-      temp: currentTemp,
-      description: currentDescription,
-      humidity: currentHumidity
-    };
+      playCation.weather = {
+        name: currentName,
+        temp: currentTemp,
+        description: currentDescription,
+        humidity: currentHumidity,
+      };
 
-    parsedPlaycations.push(playCation);
-    var stringifiedPlaycations = JSON.stringify(parsedPlaycations);
+      parsedPlaycations.push(playCation);
+      var stringifiedPlaycations = JSON.stringify(parsedPlaycations);
 
-    localStorage.setItem("Playcations", stringifiedPlaycations);
+      localStorage.setItem("Playcations", stringifiedPlaycations);
+    }
 
-  };
+    // function renderSaved(){
+    //   var stringPlaycations = localStorage.getItem("Playcations");
+    //   var parsedPlaycations = JSON.parse(stringPlaycations);
 
-  // function renderSaved(){
-  //   var stringPlaycations = localStorage.getItem("Playcations");
-  //   var parsedPlaycations = JSON.parse(stringPlaycations);
-    
-  //   console.log(parsedPlaycations[0].destination);
-  // };
-
- 
-    
-
+    //   console.log(parsedPlaycations[0].destination);
+    // };
 
     // setting place variable to equal value of target
     place = event.target.attributes[1].value;
-   
 
     // define musicCountry variable
     var musicCountry = event.target.attributes[2].value;
@@ -71,13 +64,15 @@ $(".dropdown-menu").on("click", "li", function (event) {
     // weather API call
     var weatherKey = "76b919f90d91bc2b20cd335b8fcbe3a8";
 
-    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=" + weatherKey;
-
-   
+    var weatherQueryURL =
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      place +
+      "&units=imperial&appid=" +
+      weatherKey;
 
     $.ajax({
       url: weatherQueryURL,
-      method: "GET"
+      method: "GET",
     }).then(function (response) {
       currentName = response.name;
       currentTemp = response.main.temp;
@@ -89,16 +84,22 @@ $(".dropdown-menu").on("click", "li", function (event) {
       // weather from query appends to page
       console.log(response);
       $("#weather").append(
-        "<p>In " + response.name + ", it is currently " + Math.round(response.main.temp) + " degrees with " + response.weather[0].description + " and " + response.main.humidity + " percent humidity.</p>")
-        
-  });
-    
-
+        "<p>In " +
+          response.name +
+          ", it is currently " +
+          Math.round(response.main.temp) +
+          " degrees with " +
+          response.weather[0].description +
+          " and " +
+          response.main.humidity +
+          " percent humidity.</p>"
+      );
+    });
 
     //-------------------------------------------------------------------------//
-    
+
     // top tracks API call
-    
+
     // API Key
     var musicApiKey = "0157c95a3c971813dee6253f52b0f981";
 
@@ -131,23 +132,24 @@ $(".dropdown-menu").on("click", "li", function (event) {
       console.log(response);
 
       for (i = 0; i < 10; i++) {
-
         // get artist name
-        var artist = $("<p>").text(response.tracks.track[i].artist.name);
+        var br = "<br>";
+        var artist = $("<span>").text(
+          response.tracks.track[i].artist.name + " - "
+        );
         console.log(artist);
         // get track name
-        var track = $("<p>").text(response.tracks.track[i].name);
+        var track = $("<span>").text(response.tracks.track[i].name);
         // get track url
         var trackURL = $("<a>")
           .attr("href", response.tracks.track[i].url)
           .attr("target", "_blank")
           .text("Listen on Last.fm");
         // append to #music div
-        $("#music").append(artist, track, trackURL);
+        $("#music").append(artist, track, br, trackURL, br, br);
         // $('#music').append(trackURL);
 
         console.log(response.tracks.track[i]);
-
       }
     });
 
@@ -173,21 +175,12 @@ $(".dropdown-menu").on("click", "li", function (event) {
 
       // images from query append to page
       for (i = 0; i < response.hits.length; i++) {
-
-      $("#image-container").append(
+        $("#image-container").append(
           "<img class=images src=" + response.hits[i].webformatURL + "></img>"
         );
-
       }
-      
-      
     });
 
     savePlaycation();
-    
-    });
-    
   });
-  
-
-
+});
